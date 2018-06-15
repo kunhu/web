@@ -1,0 +1,60 @@
+<h1>Audio</h1>
+
+
+<br><h2>Example 0</h2> </br>
+<div ng-app="myApp" ng-controller="myCtrl">
+
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+});
+</script>
+
+<br><h2>Example 0.1</h2> </br>
+<div ng-app="">
+  <p>Name : <input type="text" ng-model="name"></p>
+  <h1>Hello {{name}}</h1>
+  
+   <br>
+   <p>My first expression: {{ 5 + 5 }}</p>
+   </br>
+</div>
+
+<br><h2>Example 2</h2> </br>
+<div ng-app="" ng-init="firstName='John'">
+
+<p>Name: <input type="text" ng-model="firstName"></p>
+<p>You wrote: {{ firstName }}</p>
+
+</div>
+
+
+<br><h2>Example 3</h2> </br>
+<div ng-app="myApp" ng-controller=main>
+{{ firstName + " " + lastName }}
+</div>
+
+<script>
+
+var app = angular.module("myApp", []);
+
+app.controller("main", function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+});
+
+</script>
+
+
+<
+
+

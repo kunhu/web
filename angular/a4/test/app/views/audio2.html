@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="k4App" ng-controller="AudioCtrl">
+
+<p>The name is {{ firstName + " "+ lastName  }}</p>
+
+</div>
+
+<br><h2>Example 2</h2> </br>
+
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+
+<table class="table">
+  <tr ng-repeat="x in names">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+</div>
+
+
+<br><h2>Example 3</h2> </br>
+<table>
+  <tr >
+    <td>{{ name[0].Name }}</td>
+    <td>{{ name[1].Name }}</td>
+  </tr>
+</table>
+
+<br><h2>Example 4</h2> </br>
+<p>Today's welcome message is:</p>
+<h1>{{myWelcome}}</h1>
+
+
+<br><h2>Example 5</h2> </br>
+
+<div ng-controller="AudioCtrl">
+    <p>    Click <a ng-click="loadPeople()">here</a> to load data.</p>
+<<table class="table">>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    <tr ng-repeat="person in people">
+        <td>{{person.id}}</td>
+        <td>{{person.firstName}}</td>
+        <td>{{person.lastName}}</td>
+    </tr>
+</table>
+</div>
+</div>
+        
+<br><h2>Example 6</h2> 
+ <select ng-model="selectedName" ng-options="x for x in dropDownList">
+ <p>This example shows how to fill a dropdown list using the ng-options directive.</p>
+ 
+ 
+<br><h2>Example 7</h2></br>        
+<p>The time is:</p>
+<h1>{{theTime}}</h1>
+<p>The $interval service runs a function every specified millisecond.</p>        
+ 
+        
+<br><h2>Example 99 (youtube)</h2> </br>
+<iframe width="854" height="480" src="https://www.youtube.com/embed/YZf4mpC4FHI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+</body>
+</html>

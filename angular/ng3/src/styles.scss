@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+	margin:0;
+	background: #f2f2f2;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+}
+	
+
+#container {
+	display: grid;
+	grid-template-columns: 70px auto;
+	height:100%;
+	}
+	
+	
+
+	

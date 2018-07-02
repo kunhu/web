@@ -1,0 +1,80 @@
+<h1>
+  test works! {{name}}
+</h1>
+
+<div style="background-color:#FFD382;padding:10px;margin-bottom:5px; width:700px" >
+<h1>
+  test works! {{ name2 }}
+</h1>
+
+<br>
+example1:
+express :{{ 4+4 }}
+
+<br>example2:
+{{ "welcome : "+ name2 }}
+<br>example3:
+{{ name2.length }}
+
+<br>example4:
+{{ name2.toUpperCase() }}
+<h2> {{ greetUser()}}</h2>
+<h2 class="text-success"> {{ siteUrl }}</h2>
+<h2 class="text-special" [class]="successClass"> {{ siteUrl }}</h2>
+<h2  [class.text-danger]="hasError"> {{ siteUrl }}</h2>
+<h2  [ngClass]="messageClass"> {{ siteUrl }}</h2>
+
+
+
+<!-- 
+<h2  [style.color]="orange"> Style Binding</h2>
+<h2  [ngSytle]="titleStyles"> Style Binding 3</h2>
+
+ -->
+ 
+ <!--  binding event -->
+ <button (click)="onClick2($event)"> Greet</button>
+ {{greeting}}
+<br>
+ 
+ <!--  read text input -->
+  <input [(ngModel)]="userName" #myinput type='text'> {{userName}}
+   <button (click)="logId(myinput.value)">Log ID</button>
+   
+   <!--  
+   <input [(ng-Model)]="userName" #myinput type='text'> {{userName}}
+   -->
+   
+<br> <h1>example ngIf</h1>
+<h2 *ngIf="displayName; else elseBlock"> ngIf testing</h2>   
+
+<ng-template #elseBlock>
+ <h2> Name is hidden...</h2>
+</ng-template>
+
+ <br> <h1>example ngSwitch</h1>
+ <div [ngSwitch]="color">
+ <button (click)="changeColor('red')">ChangeToRed</button>
+ <button (click)="changeColor('green')">ChangeToGreen</button>
+ <button (click)="changeColor('blue')">ChangeToBlue</button>
+       <div *ngSwitchCase="'red'" style="background-color:red"> you picked red color</div>
+       <div *ngSwitchCase="'blue'" style="background-color:blue"> you picked blue color</div>
+       <div *ngSwitchCase="'green'" style="background-color:green"> you picked green color</div>
+ </div>
+ 
+ <br> <h1>example ngFor</h1>
+ 
+ <div *ngFor="let color of colors;index as i">
+    <div style="background-color:'{{color}}'"> {{i}}. you picked red {{color}}</div>
+   
+ </div>
+ 
+ 
+ <br> <h1>Component Interaction</h1>
+From APP: {{ parentData}}
+  <button (click)="fireEvent()">send event</button>
+<br>   
+<input type="text" value="init value">
+<input [disabled]="isDisabled" id={{myid}} type="text" value="init value">
+</div>
+

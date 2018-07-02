@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users/users.component';
 import { DetailsComponent } from './details/details.component';
 import { PostComponent } from './post/post.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,10 @@ const routes: Routes = [
     path: 'kunhu/:id',
     component: DetailsComponent
   },
-  
+  {
+    path: 'test',
+    component: TestComponent
+  },
   
 ];
 

@@ -78,3 +78,89 @@ From APP: {{ parentData}}
 <input [disabled]="isDisabled" id={{myid}} type="text" value="init value">
 </div>
 
+<h1>play mp3 </h1>
+<audio controls="controls">
+
+
+  <source src="test1.mp3" type="audio/mpeg" />
+Your browser does not support the audio element.
+</audio>
+
+
+
+<!-- 
+<div *ngFor="let link of youtubelinks;index as i">
+<iframe width="854" height="480" src='{{ link }}' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+ -->
+
+ <br> <h1>10. Image source</h1>
+ 
+ <h3>
+   Imageurl: {{heroImageUrl}}}
+  <img src="{{heroImageUrl}}" style="height:30px">
+</h3>
+
+
+
+
+<div class="container">
+  <section class="panel panel-info">
+    <div class="panel-heading">
+      Angular (+6) Youtube Player Component
+    </div>
+    
+    <div *ngFor="let myid of ids;index as i">
+    <div class="panel-body">
+      <youtube-player 
+        [videoId]="myid" 
+        (ready)="savePlayer($event)"
+        (change)="onStateChange($event)"
+      >
+      </youtube-player>
+    </div>
+    </div>
+  </section>
+  
+  <div class="col-md-12">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-default" (click)="playVideo()">Play</button>
+      <button type="button" class="btn btn-default" (click)="pauseVideo()">Pause</button>
+    </div>
+  </div>
+  
+  <div class="col-md-12">
+    <section class="panel panel-success">
+      <div class="panel-heading">Player State</div>
+      <div class="panel-body">
+        <pre>{{ ytEvent }}</pre>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!--  kunhu drag and drop -->
+<<h4>Transfer custom data in Drag-and-Drop</h4>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">Available to drag</div>
+            <div class="panel-body">
+                <div class="panel panel-default" dnd-draggable [dragEnabled]="true" [dragData]="transferData">
+                    <div class="panel-body">
+                        <div>Drag Me</div>
+                        <div>{{transferData | json}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div dnd-droppable class="panel panel-info" (onDropSuccess)="transferDataSuccess($event)">
+            <div class="panel-heading">Place to drop (Items:{{receivedData.length}})</div>
+            <div class="panel-body">
+                <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">{{data | json}}</div>
+            </div>
+        </div>
+    </div>
+</div>`

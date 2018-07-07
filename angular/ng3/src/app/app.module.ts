@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 //k
+import { YoutubePlayerModule } from 'ngx-youtube-player';
 import {HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,9 +15,13 @@ import { PostComponent } from './post/post.component';
 import { UsersComponent } from './users/users.component';
 import { DetailsComponent } from './details/details.component';
 import { TestComponent } from './test/test.component';
+import { ImagesComponent } from './images/images.component';
+import { PhoneLoginComponent } from './phone-login/phone-login.component';
 
-//
 
+//kunhu: dnd
+import {DndModule} from 'ng2-dnd';
+import { MycssComponent } from './mycss/mycss.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +30,19 @@ import { TestComponent } from './test/test.component';
     PostComponent,
     UsersComponent,
     DetailsComponent,
-    TestComponent
+    TestComponent,
+    ImagesComponent,
+    PhoneLoginComponent,
+    MycssComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    YoutubePlayerModule,
+    DndModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

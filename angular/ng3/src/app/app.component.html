@@ -1,4 +1,10 @@
+
+
+
+
 <div id="container" >
+
+<app-sidebar></app-sidebar>
 
 	<!--  
 	<app-sidebar></app-sidebar>
@@ -10,8 +16,13 @@
 	
 	 
 	<app-test [parentData]="RSD"></app-test>
-	-->
 	
+	
+	<ul>
+		<li><a [routerLink]="['/test']">Test</a></li>
+		<li><a [routerLink]="['/posts']">Posts</a></li>
+	</ul>
+	-->
 	 <div id="content">
 	 	<router-outlet></router-outlet>
 	 </div>

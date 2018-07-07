@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventEmitter } from 'events';
 
+import { YoutubePlayerModule } from 'ngx-youtube-player';
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -46,8 +48,16 @@ export class TestComponent implements OnInit {
   public colors=["red","green","blue","yellow"];
   
   
+  public youtubelinks=["https://www.youtube.com/embed/LF6G6-4EDDg"
+  ,"https://www.youtube.com/embed/LF6G6-4EDDg",
+    "https://www.youtube.com/embed/LF6G6-4EDDg"]
+  
+  
   @Input() public parentData;
   @Output() public childEvent = new EventEmitter();
+  
+  
+  public heroImageUrl="https://vignette.wikia.nocookie.net/halo/images/a/a0/Gir_suit.jpg/revision/latest?cb=20070202223219";
   
   ngOnInit() {
   }
@@ -79,4 +89,37 @@ export class TestComponent implements OnInit {
     console.log("fireEvent:"+123);
     this.childEvent.emit("hey home");
   }
+  
+  // Kunhu +++++++++++++++ youtube test start +++++++++
+  id = 'qDuKsiwS5xw';
+  private player;
+  private ytEvent;
+  public ids=['LF6G6-4EDDg',
+  ,'LF6G6-4EDDg',
+    'LF6G6-4EDDg']
+  
+
+  onStateChange(event) {
+    this.ytEvent = event.data;
+  }
+  savePlayer(player) {
+    this.player = player;
+  }
+  
+  playVideo() {
+    this.player.playVideo();
+  }
+  
+  pauseVideo() {
+    this.player.pauseVideo();
+  }
+
+  //
+   transferData: Object = {id: 1, msg: 'Hello'};
+    receivedData: Array<any> = [];
+
+    transferDataSuccess($event: any) {
+      console.log("kunhu:event" + $event);
+        this.receivedData.push($event);
+    }
 }

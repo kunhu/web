@@ -1,0 +1,27 @@
+`user$ brew search mongodb`
+And receive this answer:
+
+`==> Searching local taps...
+ mongodb                 mongodb@3.0             mongodb@3.2             
+ mongodb@3.4             percona-server-mongodb`
+Now:
+
+`$ brew install mongodb@3.0`
+OK, next I have a note to myself about creating these next directories in my root directory, but I did it in my current User (which has administrative access on the OS). These commands need to be precise and in this order:
+
+`$ sudo mkdir -p /data/db`
+(enter your OSX User password when prompted)
+
+`$ sudo chown -R $USER /data/db`
+
+`$ sudo chmod go+w /data/db`
+This next one came from another S.O. answer: How to install earlier version of mongodb with homebrew?
+
+`$ brew link --force mongodb@3.0`
+This next command is provided after successful completion of the --force command:
+
+`$ echo 'export PATH="/usr/local/opt/mongodb@3.0/bin:$PATH"' >> 
+ ~/.bash_profile`
+Now, you can run your Mongo as a Daemon with:
+
+`$ mongod`

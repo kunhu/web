@@ -20,7 +20,13 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@types/bootstrap": "^4.1.1",
+    "@types/jquery": "^3.3.4",
+    "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
+    "firebase": "^4.8.0",
+    "ng2-dnd": "^5.0.2",
+    "ngx-youtube-player": "^6.0.0",
     "npm": "^5.6.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"

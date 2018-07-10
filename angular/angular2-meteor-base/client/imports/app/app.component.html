@@ -1,0 +1,57 @@
+<div id="container" >
+
+<h1>debug </h1>
+
+<!--  
+<app-sidebar></app-sidebar>
+
+	
+	<app-sidebar></app-sidebar>
+	<app-users></app-users>
+	<app-details></app-details>
+	
+	
+	<h1>debug 123</h1>
+	
+	 
+	<app-test [parentData]="RSD"></app-test>
+	
+	
+	<ul>
+		<li><a [routerLink]="['/test']">Test</a></li>
+		<li><a [routerLink]="['/posts']">Posts</a></li>
+	</ul>
+-->
+
+<div>
+  <ul>
+    <li *ngFor="let party of parties | async">
+    <h2>test</h2>
+      {{party.name}}
+      <p>{{party.description}}</p>
+      <p>{{party.location}}</p>
+    </li>
+  </ul>
+</div>
+
+</div>
+--
+<h2>Todo List </h2>
+<fieldset>
+  <legend>Add Todo</legend>
+  <form>
+    <p>
+      <input #myinput2 name="todoContent" placeholder="Content">
+    </p>
+    <p>
+      <button (click)="addTodo(myinput2.value)">Add</button>
+    </p>
+  </form>
+</fieldset>
+<ul>
+  <li *ngFor="let todo of todos | async">
+    {{todo.content}}
+  </li>
+</ul>
+  
+

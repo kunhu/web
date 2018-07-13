@@ -28,6 +28,7 @@
     "meteor-client-bundler": "^0.5.1",
     "meteor-node-stubs": "^0.4.1",
     "meteor-rxjs": "^0.4.14",
+    "react-router-link": "^2.0.2",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

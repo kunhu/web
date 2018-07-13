@@ -1,0 +1,39 @@
+// kunhu add
+ul {
+  list-style-type: none;
+  text-align:center;
+ 
+  vertical-align : middle
+}
+
+.myItem
+{
+	//text-align: center;
+	vertical-align: middle;
+	line-height: 90px;       /* the same as your div height */
+}
+
+
+.box2{
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+  margin: 1em;
+  
+  // Kunhu add for inline
+  float:left;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+
+.showLabel{
+  display: block;
+  width: 100%;
+}

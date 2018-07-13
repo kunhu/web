@@ -1,0 +1,178 @@
+#container {
+	display: grid;
+	grid-template-columns: 70px auto;
+	height:100%;
+	width: 250px;
+	}
+	
+	
+#fixed-sidebar {
+    position: fixed;
+    max-width: 30%;
+    color: white;
+}
+
+// kunhu add
+ul {
+  list-style-type: none;
+}
+
+ul.li {
+    position: relative;
+}
+
+ul.ul {
+    position: absolute;
+    top: 1em;
+    left: 0;
+    display: none;
+}
+
+ul.li:hover ul {
+    display: block;
+}
+//kunhu 
+h3 * {
+text-decoration: none !important;
+vertical-align:middle;
+}
+//kunhu add hover
+h3:hover { 
+    background-color: orange;
+}
+
+
+
+//kunhu add Sidenav 2
+#mySidenav a {
+    position: absolute;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+    left: 0;
+}
+
+#about {
+    top: 20px;
+    background-color: #4CAF50;
+}
+
+#blog {
+    top: 80px;
+    background-color: #2196F3;
+}
+
+#projects {
+    top: 140px;
+    background-color: #f44336;
+}
+
+#contact {
+    top: 200px;
+    background-color: #555
+}
+
+nav.main {
+	width: 200px;
+	background: #ffffff;
+	height: 100%;
+	position: absolute;
+	z-index: 9;
+	transition: all .4s ease-in-out;
+}
+
+nav.main div {
+	width: 100%;
+	overflow: hidden;
+}
+
+nav.main header {
+	position: relative;
+	height: 80px;
+	width: 250px;
+	padding: 20px 0 0 15px;
+	font-size: 16px;
+	color: #fff;
+	background: #303B45;
+	transition: all .4s ease-in-out;
+}
+
+nav.main header img.thumb {
+	position: relative;
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	margin: 0 10px 0 0;
+	vertical-align: middle;
+	transition: all .4s ease-in-out;
+	border-radius: 50%;
+}
+
+nav.main header a:before {
+	content: '\f053';
+	font: normal 20px FontAwesome;
+	top: 28px;
+	right: 15px;
+}
+
+nav.main a.open {
+	height: 0;
+	display: block;
+	overflow: hidden;
+	transition: all .4s ease-in-out;
+}
+
+nav.main a.open:before {
+	position: static;
+	content: '\f054';
+	font: normal 20px FontAwesome;
+	padding: 15px 19px;
+	color: #fff;
+}
+
+
+
+
+ul.collapsed li {
+background: #000;
+width: 100%;
+margin-left: auto;
+}
+
+
+/*	Collapsed styles
+nav.main.collapsed {
+	width: 50px;
+}
+
+
+nav.main.collapsed a.open { height: 50px; }
+
+nav.main.collapsed header {
+	padding: 0;
+	height: 55px;
+}
+
+nav.main.collapsed header img.thumb {
+	margin: 10px 7px;
+}
+
+nav.main.collapsed ul li:hover {
+	width: 250px;
+	position: relative;
+	z-index: 999;
+}
+
+nav.main.collapsed ul li.section {
+	height: 10px;
+	width: 100%;
+}
+	 */

@@ -1,0 +1,95 @@
+
+
+<!-- Navbar ++++++++++++++ 
+ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+    <form class="form-inline my-2 my-lg-0">
+     <!-- 
+      <input class="form-control mr-sm-2"  aria-label="Search">
+     
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+       -->
+       <input [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" #myinput type='text' placeholder="youtube id">
+       <input #myinput2 type='text' [placeholder]="inputLabel" [value]="inputLabel">
+     
+       <button type="button" class="btn btn-primary" (click)="onClick(myinput.value, myinput2.value)">Save</button>
+       <button type="button" class="btn btn-primary" (click)="onClickShow(myinput2.value)">Show</button>
+    </form>
+  </div>
+</nav>
+
+<!-- Navbar -------------------
+ -->
+ 
+<!-- <img class='photo-img'  [src]='heroImageUrl'>
+
+
+  <input [(ngModel)]="userName" #myinput type='text'>
+   -->
+   <!-- <button (click)="onClick(myinput.value)">Log ID</button>
+    
+   <button type="button" class="btn btn-primary" (click)="onClick(myinput.value)">Save</button>
+   
+   
+<!--    
+<div *ngFor="let item of items;index as i">
+{{index}}
+
+--> 
+<!--  <iframe width="854" height="480" [src]="getUrl(item)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+<!--  
+<iframe [width]=myWidth [height]=myHeight [src]="getUrl(item)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+-->
+
+
+<!--  {{item.itemsId}}  -->
+<br>
+<br>
+<br>
+
+
+
+<div class=showLabel>
+ <div *ngFor="let item of showAllLabels | async ">
+
+<!-- <div *ngFor="let item of labelArray2 ">
+ -->
+			<!--  <button type="button" class="btn btn-default" (click)="onClickShow(item)">{{item}}</button>
+			-->
+		
+			<button type="button" class="btn btn-default" style="float:left;"(click)="onClickShow(item.label)">{{item.label}}</button>
+			 
+</div>
+</div>
+<br><br><br>
+
+
+
+  
+<div *ngFor="let item of youtubeItems | async">
+	
+	<div class=box2>
+	
+		<iframe [width]=myWidth [height]=myHeight [src]="getUrl(item.id)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		<button (click)="onDelete(item.id)">Delete</button>
+		<button (click)="onUdate(item.id)">Update</button>
+		
+	</div>
+<!-- 
+<ul>
+	
+  	<li></li>
+</ul>
+
+ -->
+<!--  <iframe width="854" height="480" [src]="getUrl(item.itemsId)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+
+</div>
+
+
+

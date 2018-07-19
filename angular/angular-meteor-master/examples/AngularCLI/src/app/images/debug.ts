@@ -541,12 +541,12 @@ function debug_19_jsonExample()
       }
   }
   source.subscribe(obsever1);
-  var new1=source.pipe(map(x=> return {label:x.label}));
+  var new1=source.pipe(map(x=> {return {label:x.label};}));
   console.log("new1:");
   
    var labelArray =[];
   
-  new1.subscribe(x => {console.log(x);labelArray.push(x.label));
+  new1.subscribe(x => {console.log(x);labelArray.push(x.label)});
   
   //new1=new1.pipe(filter(item=> item.id < 2))
   //console.log("new1 filter:");

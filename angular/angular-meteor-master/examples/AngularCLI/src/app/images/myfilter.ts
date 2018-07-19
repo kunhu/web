@@ -60,7 +60,7 @@ export class MyFilterPipe implements PipeTransform {
     
     //ok
     //let uniqueArray = value.map(e => {e.label;myArray.push(e.label)});
-    let uniqueArray = value.map(e => return e.label);
+    let uniqueArray = value.map(e => {return e.label;});
     
     //let uniqueArray2 = Array.from(new Set(uniqueArray));
     

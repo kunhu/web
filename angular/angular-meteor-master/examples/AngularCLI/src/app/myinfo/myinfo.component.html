@@ -1,12 +1,4 @@
 
-<!-- 
-<div id="container" >
-
-
-<app-sidebar></app-sidebar>
-
- -->
-
 
 <!-- Navbar ++++++++++++++ 
  -->
@@ -21,11 +13,14 @@
      
        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
        -->
+       
+       <!-- 
        <input [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" #myinput type='text' placeholder="youtube id">
        <input #myinput2 type='text' [placeholder]="inputLabel" [value]="inputLabel">
      
        <button type="button" class="btn btn-primary" (click)="onClick(myinput.value, myinput2.value)">Save</button>
        <button type="button" class="btn btn-primary" (click)="onClickShow(myinput2.value)">Show</button>
+        -->
     </form>
   </div>
 </nav>
@@ -63,16 +58,8 @@
 
 
 <div class=showLabel>
- 
  <div *ngFor="let item of showAllLabels  |async |myfilter ">
  <button type="button" class="btn btn-default" style="float:left;"(click)="onClickShow(item)">{{item}}</button>
- 
- <!--  
-<div *ngFor="let item of myArray ">
- <button type="button" class="btn btn-default" style="float:left;"(click)="onClickShow(items)">{{item}}</button>
--->			
-			 
-</div>
 </div>
 <br><br><br>
 
@@ -84,8 +71,7 @@
 	<div class=box2>
 	
 		<iframe [width]=myWidth [height]=myHeight [src]="getUrl(item.id)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-		<button (click)="onDelete(item.id)">Delete</button>
-		<button (click)="onUdate(item.id)">Update</button>
+
 		
 	</div>
 <!-- 

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { ImagesComponent } from './images/images.component';
-
+import { MyInfoComponent } from './myinfo/myinfo.component';
 
 const routes: Routes = [
   
@@ -12,7 +12,11 @@ const routes: Routes = [
     component: ImagesComponent
     
   },
- 
+ {
+    path: 'info',
+    component: MyInfoComponent
+    
+  },
   
   
 ];

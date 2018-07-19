@@ -7,7 +7,7 @@ import { switchMap } from 'rxjs/operators';
 
 //kunhu : add
 //import { Observable2 } from 'rxjs/Rx';
-import { filter, map, take } from 'rxjs/operators';
+import { filter, map, take,flatMap,concatMap } from 'rxjs/operators';
 //import { Rx } from "rxjs/Rx";
 //import "rxjs/add/observable/interval";
 
@@ -16,6 +16,8 @@ import { filter, map, take } from 'rxjs/operators';
 import { Observable, Subject, ReplaySubject, from, of, range, interval,timer } from 'rxjs';
 //import { Observable } from 'rxjs';
 
+//Kunhu add
+import { KMessage } from './KMessage';
 
   function debug()
   {
@@ -519,7 +521,7 @@ function debug_19_jsonExample()
   var arr = [json1,json2,json3] 
   var source = from(arr);
   
-  
+  /*
     source.subscribe({
       next: function(value) {
         console.log('interval:'+value)
@@ -531,9 +533,14 @@ function debug_19_jsonExample()
         console.log('Throw Error: ' + error)
       }
     }); 
-  
-  /*
-  source.subscribe(console.log);
+  */
+  var obsever1= 
+    {
+     next: function(value) {
+        console.log('obsever1:'+JSON.stringify(value,null,4));
+      }
+  }
+  source.subscribe(obsever1);
   var new1=source.pipe(map(x=> return {label:x.label}));
   console.log("new1:");
   
@@ -550,10 +557,80 @@ function debug_19_jsonExample()
    console.log("array filter:"+uniq(names));
    console.log("labelArray:"+JSON.stringify((labelArray),null,4));
    console.log("labelArray filter:"+JSON.stringify(removeDuplicates(labelArray),null,4) );
-   */
+   
   
 }
 
+
+
+// array
+function debug_20_distinct()
+{
+  console.log('debug_20_distinct+++');
+  var json1 =[
+  {
+      id:1,
+      label:"music1"
+   },
+    {
+      id:2,
+      label:"music2"
+   }];
+    
+  var json2 =[
+  {
+      id:3,
+      label:"music3"
+   },
+    {
+      id:4,
+      label:"music4"
+   }];
+  
+  var json3 =[
+  {
+      id:5,
+      label:"music5"
+   },
+    {
+      id:6,
+      label:"music5"
+   }];
+  var arr = [json1,json2,json3] ;
+  var source = from(arr);
+  
+  
+  var filter1=json1
+              .filter(x => x.label=="music2")
+              .map(x =>{label: "kunhu"});
+                   
+  var msg2= new KMessage(1);
+  msg2.print(filter1);
+  //return ;
+  
+  var msg= new KMessage(1);
+  var obsever1= 
+    {
+     next: function(value) {
+         msg.print(value);
+         //value.map(x => {x.label; console.log(x.label))});
+         //value.filter(x=> x.label="music5");
+      }
+  };
+  
+  //source.subscribe(obsever1);
+  
+  //var new1=source.pipe(concatMap(x=> return {label:x.label}));
+  //var new1=source.pipe(concatMap(res => {console.log(JSON.stringify(res,null,4))})) ;
+  msg.setTag('new1');
+  var myArray=[];
+  var new1=source.pipe(map(e => e.filter(x => {x.label === "music6"; msg.print(x);myArray.push(x.label)}))) ;
+  //var new1=source.pipe(filter(e => e.filter(x => {x.label === "music6"; msg.print(x)}) ;
+  //console.log("new1:");
+  new1.subscribe(obsever1);
+  console.log("myArray filter:"+JSON.stringify(removeDuplicates(myArray),null,4) );
+  
+}
 
 function debug_11_template()
 {
@@ -584,7 +661,8 @@ var main_function = function()
     //debug_16_timer();
     //debug_17_interval_map();
     //debug_18_twoObservable();
-    debug_19_jsonExample();
+    //debug_19_jsonExample();
+    debug_20_distinct();
 }
 //export
 //export const debug_func1_event;

@@ -21,17 +21,12 @@ import { YoutubeItems } from 'api/server/collections';
 import { YoutubeItem } from 'api/server/models';
 
 //debug
-import { main_function } from './debug';
-
-//filter
-//import { Pipe, PipeTransform } from '@angular/core';
-//
-import { KMessage } from './KMessage';
+//import { main_function } from './debug'
 
 @Component({
-  selector: 'app-images',
-  templateUrl: './images.component.html',
-  styleUrls: ['./images.component.scss']
+  selector: 'app-myinfo',
+  templateUrl: './myinfo.component.html',
+  styleUrls: ['./myinfo.component.scss']
 })
   
   
@@ -63,9 +58,7 @@ export class FilterPipe implements PipeTransform {
 
 
 
-
-
-export class ImagesComponent implements OnInit {
+export class MyInfoComponent implements OnInit {
 
   public url;
   public youtubelink="https://www.youtube.com/embed/LF6G6-4EDDg";
@@ -86,19 +79,8 @@ export class ImagesComponent implements OnInit {
   public inputLabel="label";
   
   
-  public filterargs = {title: 'hello'};
-  public myArray=[];
   
-  /*
-  var  removeDuplicates= function (arrayIn) {
-    var arrayOut = [];
-    for (var a=0; a < arrayIn.length; a++) {
-        if (arrayOut[arrayOut.length-1] != arrayIn[a]) {
-            arrayOut.push(arrayIn[a]);
-        }
-    }
-    return arrayOut;
-  }*/
+  
   constructor(private sanitizer:DomSanitizer) {
     
     /*
@@ -124,28 +106,6 @@ export class ImagesComponent implements OnInit {
     
     
    
-   
-   // +++++++ Kunhu
-    /*
-    var msg= new KMessage(1);
-    var obsever1= 
-    {
-     next: function(value) {
-         msg.print(value);
-         //value.map(x => {x.label; console.log(x.label))});
-         //value.filter(x=> x.label="music5");
-      }
-  };
-   
-   
-   var new1=this.showAllLabels.pipe(map(e => e.filter(x => {x.label === "music6"; msg.print(x);this.myArray.push(x.label)}) )) ;
-    //var new1=source.pipe(filter(e => e.filter(x => {x.label === "music6"; msg.print(x)}) ;
-    //console.log("new1:");
-    new1.subscribe(obsever1);
-    console.log("myArray filter:"+JSON.stringify((this.myArray),null,4) );
-    */
-    // kunhu ---------------
-    
     //this.showAllLabels.pipe(map(value=> console.log("e:"+value); return value.label;));
     
     
@@ -157,22 +117,17 @@ export class ImagesComponent implements OnInit {
     finally:  () => { console.log('finally'); }
     });
     */
-    console.log('newest:'); 
-    //var myCoun=1;
-    //var newest = this.showAllLabels.pipe(map(x => {console.log(JSON.stringify(x,null,4));return {label:x} )); 
-    //var newest = this.showAllLabels.pipe(map(x => {console.log(JSON.stringify(x,null,4));console.log("i:"+myCoun); myCoun++; })); 
+    //console.log('newest:'); 
+    // var newest = this.showAllLabels.pipe(map(x => {console.log("kunhu:");console.log("kunhu:"+x)} )); 
     //var newest = this.showAllLabels.pipe(map(x => return {name:"kunhu"+x} )); 
  
-    //var newest2 = this.showAllLabels.pipe(flatMap(x => {console.log(JSON.stringify(x,null,4));console.log("ii:"+myCoun); myCoun++; })); 
-    //console.log('????:'); 
-    //console.log('??? newest:'+JSON.stringify(newest,null,4)); 
-    //newest.subscribe(x=> {console.log(JSON.stringify(x,null,4))});
+    //newest.subscribe(x=> {console.log(JSON.stringify(x,null,4))} ));
     
     //console.log('newest:'+JSON.stringify(newest,null,4)); 
    
     
     
-    /*
+    
     this.showAllLabels.subscribe(value=>
       {
        
@@ -197,7 +152,6 @@ export class ImagesComponent implements OnInit {
         this.labelArray2=this.removeDuplicates(this.labelArray2);
         //console.log("this.labelArray2 : "+this.labelArray2);
       });
-     */
     
     // fixed me later: map is not working. why?
     //var new1=this.showAllLabels.pipe(map(x=> return {label:x.label}));
@@ -247,7 +201,6 @@ export class ImagesComponent implements OnInit {
   onClick(value,label){
 
     //main_function();
-    //console.log("myArray filter:"+JSON.stringify((this.myArray),null,4) );
     //return;
     
     
@@ -267,8 +220,6 @@ export class ImagesComponent implements OnInit {
   // Show by lable
   onClickShow(mylabel){
       console.log("this is kunhutest (label):"+mylabel);
-    this.inputLabel= mylabel;
-    
      this.youtubeItems = MeteorObservable.subscribe('youtubeItems')
       .pipe(switchMap(() => YoutubeItems.find({label:mylabel})));
     

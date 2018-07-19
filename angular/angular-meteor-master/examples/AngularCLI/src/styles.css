@@ -10,8 +10,8 @@ body {
 	
 
 #container {
-	display: grid;
-	grid-template-columns: 205px auto;
+	/*display: grid;*/
+	/*grid-template-columns: 205px auto;*/
 	height:100%;
 	}
 	

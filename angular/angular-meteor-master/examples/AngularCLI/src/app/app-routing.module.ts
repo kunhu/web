@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ImagesComponent } from './images/images.component';
 import { MyInfoComponent } from './myinfo/myinfo.component';
+import { SigninComponent } from './signin/signin.component';
+import { DownloadComponent } from './download/download.component'
 
 const routes: Routes = [
   
@@ -17,8 +19,16 @@ const routes: Routes = [
     component: MyInfoComponent
     
   },
-  
-  
+ {
+    path: 'signin',
+    component: SigninComponent
+    
+  },
+ {
+    path: 'download',
+    component: DownloadComponent
+    
+  }, 
 ];
 
 @NgModule({

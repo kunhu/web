@@ -21,7 +21,7 @@ import { YoutubeItems } from 'api/server/collections';
 import { YoutubeItem } from 'api/server/models';
 
 //debug
-import { main_function } from './debug';
+//import { main_function } from './debug';
 
 //filter
 //import { Pipe, PipeTransform } from '@angular/core';

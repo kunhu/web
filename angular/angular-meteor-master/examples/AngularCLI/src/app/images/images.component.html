@@ -21,7 +21,7 @@
      
        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
        -->
-       <input [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" #myinput type='text' placeholder="youtube id">
+       <input [(ngModel)]="userName" onClick="this.select();" [ngModelOptions]="{standalone: true}" #myinput type='text' placeholder="youtube id">
        <input #myinput2 type='text' [placeholder]="inputLabel" [value]="inputLabel">
      
        <button type="button" class="btn btn-primary" (click)="onClick(myinput.value, myinput2.value)">Save</button>

@@ -17,7 +17,7 @@ import { DetailsComponent } from './details/details.component';
 import { TestComponent } from './test/test.component';
 import { ImagesComponent } from './images/images.component';
 import { PhoneLoginComponent } from './phone-login/phone-login.component';
-
+import { NgProgressModule } from '@ngx-progressbar/core';
 
 //kunhu: dnd
 import {DndModule} from 'ng2-dnd';
@@ -42,7 +42,8 @@ import { MycssComponent } from './mycss/mycss.component';
     CommonModule,
     FormsModule,
     YoutubePlayerModule,
-    DndModule.forRoot()
+    DndModule.forRoot(),
+    NgProgressModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]

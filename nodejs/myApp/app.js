@@ -1,5 +1,9 @@
 var express = require('express');
 
+const shell = require('shelljs');
+
+
+
 //bug fix for cors
 var cors = require('cors')
 var app = express();
@@ -278,6 +282,107 @@ app.post('/query', function (req, res) {
 });
 
 
+
+function KShell(cmd)
+{
+	console.log("[cmd]:"+cmd);
+	result=shell.exec(cmd);
+	console.log("[result]:"+result);
+	return result;
+}
+// downlaod
+
+/*
+ * youtube] Setting language
+[youtube] 3JZ_D3ELwOQ: Downloading webpage
+[youtube] 3JZ_D3ELwOQ: Downloading video info webpage
+[youtube] 3JZ_D3ELwOQ: Extracting video information
+[info] Available formats for 3JZ_D3ELwOQ:
+format code extension resolution  note 
+171         webm      audio only  DASH webm audio , audio@ 48k (worst)
+140         m4a       audio only  DASH audio , audio@128k
+160         mp4       192p        DASH video 
+133         mp4       240p        DASH video 
+134         mp4       360p        DASH video    --> only video
+135         mp4       480p        DASH video 
+136         mp4       720p        DASH video 
+137         mp4       1080p       DASH video 
+17          3gp       176x144     
+36          3gp       320x240     
+5           flv       400x240     
+43          webm      640x360     
+18          mp4       640x360     
+22          mp4       1280x720    (best)
+ */
+app.post('/cc', function (req, res) {
+	  
+	console.log("kunhu:cc+++");
+	console.log(req.body);
+	myObject=req.body;
+	query=myObject;
+	
+	var fileSystem = require('fs');
+    var path = require('path');
+	
+	var cmd3=' rm ./youtubedownload/*';
+	KShell(cmd3);
+	
+	//var cmd='ls -al';
+	//KShell(cmd);
+	//result=shell.exec('ls -al');
+	//var cmd='youtube-dl -f 134 '+ myObject.url;
+	//var cmd='youtube-dl -f 18 -o \'./youtubedownload/%(title)s.%(ext)s\''+ ' ' +myObject.url;
+	var cmd='youtube-dl -f 18 -o \'./youtubedownload/%(id)s.%(ext)s\''+ ' ' +myObject.url;
+	KShell(cmd);
+	
+	var cmd2='ls ./youtubedownload';
+	var myfile=KShell(cmd2);
+	myfile = myfile.replace(/(\r\n\t|\n|\r\t)/gm,"");
+	
+	var myfile1='./youtubedownload/'+myfile;
+	//var myfile2='./youtubedownload/'+myfile;
+	//var filePath = path.join(__dirname, myfile1);
+	/*
+    var stat = fileSystem.statSync(filePath);
+
+    response.writeHead(200, {
+        'Content-Type': 'audio/mpeg',
+        'Content-Length': stat.size
+    });
+    */
+	//myfile2='./query.json';
+    //console.log('myfile222-c222:'+myfile2);
+ 
+    //res.download(myfile1);
+    var mylink={
+    	urlToDownload:"http://localhost:4000/getMyFile"
+    }
+	
+	
+	res.send(JSON.stringify(mylink,null,4));
+});
+
+
+app.get('/getMyFile', function (req, res) {
+	
+	console.log("get:getMyFile+++++++++++++++++");
+	myjson={
+		test:'hi, ths is template',
+	}
+	
+	var cmd2='ls ./youtubedownload';
+	var myfile=KShell(cmd2);
+	
+	//bug fixed,need remove it, or cannot find this file.
+	myfile = myfile.replace(/(\r\n\t|\n|\r\t)/gm,"");
+	
+	var myfile1='./youtubedownload/'+myfile;
+
+	res.download(myfile1);
+	//res.send(JSON.stringify(myjson,null,4));
+});
+
+
 app.delete('/', function (req, res) {
 	
 	console.log(req.body);
@@ -290,8 +395,50 @@ app.delete('/', function (req, res) {
 	res.send(JSON.stringify(myObject,null,4));
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+// 
+app.get('/cctest', function (req, res) {
+	
+	console.log("get:cctest+++++++++++++++++");
+	myjson={
+		test:'hi, ths is template',
+	}
+	
+	var cmd2='ls ./youtubedownload';
+	var myfile=KShell(cmd2);
+	
+	//bug fixed,need remove it, or cannot find this file.
+	myfile = myfile.replace(/(\r\n\t|\n|\r\t)/gm,"");
+	
+	var myfile1='./youtubedownload/'+myfile;
+	var myfile2='./youtubedownload/'+myfile;
+	
+	console.log("get:cctest: filename:"+myfile2);
+	console.log("get:cctest: filename.length:"+myfile2.length);
+	
+	var file = './item.json';
+	var file = './Edsszob3DVc.mp4';
+	var file = './temp/item.json';
+	var file = './temp/Edsszob3DVc.mp4';
+	console.log("get:cctest: file:"+file);
+	console.log("get:cctest: file.length:"+file.length);
+	res.download(file);
+	//res.send(JSON.stringify(myjson,null,4));
+});
+
+// template 
+app.get('/abc', function (req, res) {
+	
+	myjson={
+		test:'hi, ths is template',
+	}
+	
+	res.send(JSON.stringify(myjson,null,4));
+});
+
+
+//change to 4000, 3000 is for meteor database
+app.listen(4000, function () {
+  console.log('Example app listening on port 4000!');
 });
 
 

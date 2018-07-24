@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class KMessage
 {
-  
+  index=0;
+  tag="";
   constructor(start)
   {
     this.index=start;

@@ -1,0 +1,6 @@
+
+- hosts: apache  # 需要執行的主機
+  become: true  # use sudo
+  tasks:
+    - name: install apache2
+      apt: name=apache2 update_cache=yes state=latest

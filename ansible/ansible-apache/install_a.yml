@@ -1,0 +1,16 @@
+
+---
+- name: Hello World!
+  hosts: all
+ 
+  tasks:
+ 
+  - name: Hello World!
+    shell: echo "Hi! Tower is working."
+
+
+  - name: Ansible apt install packages example
+    apt:
+      name: nmap
+      state: present 
+      update_cache: true

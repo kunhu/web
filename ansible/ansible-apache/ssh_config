@@ -1,0 +1,11 @@
+
+
+# Prod
+Host myserver
+    HostName 10.142.0.3
+    User 
+Host prod-web
+    HostName INTERNAL_IP
+    User ec2-user
+    ForwardAgent yes
+    ProxyCommand ssh -q -W %h:%p ec2-user@SOME_IP

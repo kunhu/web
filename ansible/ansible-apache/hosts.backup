@@ -1,0 +1,11 @@
+
+[mytest] # Group Name
+#10.142.0.3 #ansible_ssh_user=username ansible_ssh_private_key_file=key
+ansible_host=10.142.0.3
+ansible_port=22 
+#ansible_user=
+
+#
+#remote_user = ''
+#
+host_key_checking = False
